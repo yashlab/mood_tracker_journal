@@ -1,0 +1,4 @@
+include mooder/schema.sql
+graft modoer/static
+graft mooder/templates
+global-exclude *.pyc
