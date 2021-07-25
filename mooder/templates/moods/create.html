@@ -2,12 +2,32 @@
 
 {% block header %}
   <h1>{% block title %}New Post{% endblock %}</h1>
+  
 {% endblock %}
 
 {% block content %}
   <form method="post">
-    <label for="mood">How are you feeling</label>
-    <input name="mood" id="mood" value="{{ request.form['mood'] }}" required>
+    <label>
+      <input type="radio" name="mood" value =1 checked> &#128515
+    </label>
+
+    <label>
+      <input type="radio" name="mood" value =2> &#128518
+    </label>
+
+    <label>
+      <input type="radio" name="mood" value =3> &#128528
+    </label>
+
+    <label>
+      <input type="radio" name="mood" value =4> &#128532
+    </label>
+
+    <label>
+      <input type="radio" name="mood"value =5 > &#128534
+    </label>
+    
+
     <label for="title">Title</label>
     <input name="title" id="title" value="{{ request.form['title'] }}" required>
     <label for="body">Body</label>

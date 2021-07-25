@@ -16,7 +16,11 @@ def index():
         ' FROM moods p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('moods/index.html', posts=posts)
+    return render_template('moods/index.html', posts=posts,mooddir={1:'\U0001F603',
+                                                                    2:'\U0001F606',
+                                                                    3:'\U0001F610',
+                                                                    4:'\U0001F614',
+                                                                    5:'\U0001F616'})
 
 
 @bp.route('/create', methods=('GET', 'POST'))

@@ -2,10 +2,17 @@
 <title>{% block title %}{% endblock %} - Mooder</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>Mooder</h1>
+  {% if g.user %}
+  <h1> {{ g.user['username'].title() }}'s Mooder</h1>
+
+  {% else %}
+  <h1> Welcome to Mooder!! </h1>
+
+  {% endif %}
+  
   <ul>
     {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
+      <!-- <li><span>{{ g.user['username'] }}  </span> -->
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
@@ -21,4 +28,8 @@
     <div class="flash">{{ message }}</div>
   {% endfor %}
   {% block content %}{% endblock %}
+  <div style="text-align: center;">
+    Developed with &#10084 by Yash @ <a href="https://www.yashlab.pro" style="color: #cc005f;"> King's Lab</a>
+  </div>
+  
 </section>

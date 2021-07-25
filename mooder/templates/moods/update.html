@@ -5,7 +5,83 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
+
+<form method="post">
+  {% if post['mood'] == 1 %}
+  <label>
+    <input type="radio" name="mood" value=1 checked> &#128515
+  </label>
+  {% else %}
+  <label>
+    <input type="radio" name="mood" value=1> &#128515
+  </label>
+  {% endif %}
+
+  {% if post['mood'] == 2 %}
+  <label>
+    <input type="radio" name="mood" value=2 checked> &#128518
+  </label>
+  {% else %}
+  <label>
+    <input type="radio" name="mood" value=2> &#128518
+  </label>
+  {% endif %}
+
+  {% if post['mood'] == 3 %}
+  <label>
+    <input type="radio" name="mood" value=3 checked> &#128528
+  </label>
+  {% else %}
+  <label>
+    <input type="radio" name="mood" value=3> &#128528
+  </label>
+  {% endif %}
+
+  {% if post['mood'] == 4 %}
+  <label>
+    <input type="radio" name="mood" value=4 checked> &#128532
+  </label>
+  {% else %}
+  <label>
+    <input type="radio" name="mood" value=4> &#128532
+  </label>
+  {% endif %}
+
+  {% if post['mood'] == 5 %}
+  <label>
+    <input type="radio" name="mood" value=5 checked> &#128534
+  </label>
+  {% else %}
+  <label>
+    <input type="radio" name="mood" value=5> &#128534
+  </label>
+  {% endif %}
+
+  <!-- <label>
+    <input type="radio" name="mood" value=2> &#128518
+  </label>
+
+  <label>
+    <input type="radio" name="mood" value=3> &#128528
+  </label>
+
+  <label>
+    <input type="radio" name="mood" value=4> &#128532
+  </label>
+
+  <label>
+    <input type="radio" name="mood" value=5> &#128534
+  </label> -->
+  
+
+  <label for="title">Title</label>
+  <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}"  required>
+  <label for="body">Body</label>
+  <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+  <input type="submit" value="Save">
+</form>
+
+  <!-- <form method="post">
     <label for="mood">How are you feeling</label>
     <input name="mood" id="mood" value="{{ request.form['mood'] }}" required>
     <label for="title">Title</label>
@@ -15,7 +91,7 @@
     <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
     <input type="submit" value="Save">
   </form>
-  <hr>
+  <hr> -->
   <form action="{{ url_for('mood.delete', id=post['id']) }}" method="post">
     <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
   </form>
